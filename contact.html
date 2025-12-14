@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Pendaftaran UKM Volleyball</title>
+    <title>Contact | UKM Bola Voli</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 </head>
 <body>
-
     <!-- NAVBAR -->
     <div class="navbar">
         <div class="nav-left">
@@ -18,46 +19,62 @@
         <div class="nav-right">
             <a href="index.html" class="nav-item">Home</a>
             <a href="about.html" class="nav-item">About</a>
-            <a href="admin.html" class="nav-item">Admin</a>
+            <a href="admin.php" class="nav-item">Admin</a>
             <a href="member.php" class="nav-item">Members</a>
-            <a href="#" class="nav-contact">Contact</a>
+            <a href="contact.html" class="nav-contact">Contact</a>
         </div>
     </div>
 
-    <!-- BACKGROUND SECTION -->
-    <div class="hero">
-        <div class="form-container">
-            <h2>Daftar Anggota Baru</h2>
+<!-- ================= CONTACT SECTION ================= -->
+<section class="contact-section">
 
-            <form>
-                <label>Nama Lengkap</label>
-                <input type="text" placeholder="Masukkan nama">
+    <h2 class="contact-title">CONTACT US</h2>
+    <p class="contact-desc">
+        Hubungi kami untuk informasi pendaftaran, latihan, atau kerja sama.
+    </p>
 
-                <label>NIM</label>
-                <input type="text" placeholder="Masukkan NIM">
+    <div class="contact-container">
 
-                <label>Program Studi</label>
-                <input type="text" placeholder="Masukkan prodi">
+        <!-- INFO KONTAK -->
+        <div class="contact-info">
+            <h3>Informasi Kontak</h3>
 
-                <label>Fakultas</label>
-                <input type="text" placeholder="Masukkan Fakultas">
+            <div class="info-item">
+                <span>📍</span>
+                <p>Universitas Ma'soem</p>
+            </div>
 
-                <label>Angkatan</label>
-                <input type="text" placeholder="Masukkan angkatan">
+            <div class="info-item">
+                <span>📞</span>
+                <p>+62 888-7777-9999</p>
+            </div>
 
-                <label>Nomor HP</label>
-                <input type="text" placeholder="Masukkan Nomor Hp">
+            <div class="info-item">
+                <span>✉️</span>
+                <p>ukmvolleymu@gmail.com</p>
+            </div>
 
-                 <label>Foto Pemain<br></label> 
-                 <input type="file" name="foto" required><br><br>
-
-
-                <button class="submit-btn" type="submit">Submit</button>
-            </form>
+            <div class="info-item">
+                <span>📷</span>
+                <p>@ukmvolleymu</p>
+            </div>
         </div>
-    </div>
 
-    <!-- FOOTER -->
+        <!-- FORM -->
+        <form class="contact-form">
+            <h3>Kirim Pesan</h3>
+
+            <input type="text" placeholder="Nama Lengkap" required>
+            <input type="email" placeholder="Email" required>
+            <textarea placeholder="Pesan" rows="5" required></textarea>
+
+            <button type="submit">Kirim Pesan</button>
+        </form>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
     <footer>
         <div class="footer-content">
 
