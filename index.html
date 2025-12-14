@@ -6,7 +6,6 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css" >
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
@@ -47,14 +46,14 @@
 </div>
 
 <!-- ================= KEPENGURUSAN SECTION ================= -->
-<div class="kepengurusan">
+<div class="kepengurusan reveal-section">
 
     <h2 class="judul-section">KEPENGURUSAN</h2>
 
     <!-- FOTO BAGIAN ATAS -->
     <div class="foto-atas">
         
-        <div class="card-k1">
+        <div class="card-k1 reveal-card">
             <img src="img/ketua.jpg" alt="">
             <div class="text-k">
                 <h3>KETUA</h3>
@@ -62,7 +61,7 @@
             </div>
         </div>
 
-        <div class="card-k2">
+        <div class="card-k2 reveal-card">
             <img src="img/wakil.jpg" alt="">
             <div class="text-k">
                 <h3>WAKIL KETUA</h3>
@@ -70,7 +69,7 @@
             </div>
         </div>
 
-        <div class="card-k3">
+        <div class="card-k3 reveal-card">
             <img src="img/sekertaris.jpg" alt="">
             <div class="text-k">
                 <h3>SEKRETARIS</h3>
@@ -78,7 +77,7 @@
             </div>
         </div>
 
-        <div class="card-k4">
+        <div class="card-k4 reveal-card">
             <img src="img/bendahara.jpg" alt="">
             <div class="text-k">
                 <h3>BENDAHARA</h3>
@@ -91,7 +90,7 @@
     <!-- FOTO BAGIAN BAWAH -->
 <div class="foto-bawah"> 
 
-    <div class="card-b">
+    <div class="card-b reveal-card">
         <img src="img/lapangan.jpg" alt="">
         <div class="text-b">
             <h3>LAPANGAN</h3>
@@ -99,7 +98,7 @@
         </div>
     </div>
 
-    <div class="card-b">
+    <div class="card-b reveal-card">
         <img src="img/pudekdok.jpg" alt="">
         <div class="text-b">
             <h3>PUBDEKDOK</h3>
@@ -107,7 +106,7 @@
         </div>
     </div>
 
-    <div class="card-b">
+    <div class="card-b reveal-card">
         <img src="img/humas.jpg" alt="">
         <div class="text-b">
             <h3>HUMAS</h3>
@@ -118,50 +117,79 @@
 </div>
 </div>
 
-<!-- ============== JADWAL LATIHAN ================= -->
-    <div class="hero-home">
-        <div class="overlay"></div>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const section = document.querySelector(".reveal-section");
+    const cards = document.querySelectorAll(".reveal-card");
 
-        <div class="content">
-        <h1 class="title">JADWAL LATIHAN</h1>
+    const observer = new IntersectionObserver(
+        entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Section masuk viewport
+                    section.classList.add("show");
 
+                    cards.forEach((card, index) => {
+                        card.classList.remove("show"); // reset dulu
+                        setTimeout(() => {
+                            card.classList.add("show");
+                        }, index * 150);
+                    });
+                } else {
+                    // Section keluar viewport → RESET
+                    section.classList.remove("show");
+                    cards.forEach(card => card.classList.remove("show"));
+                }
+            });
+        },
+        {
+            threshold: 0.25
+        }
+    );
 
-        <div class="info-block">
-            <div class="info-item">
-                <img class="icon" src="img/calendar.png" alt="calendar">
-                <span>Hari Jum'at</span>
+    observer.observe(section);
+});
+</script>
+
+<!-- ================= JADWAL LATIHAN ================= -->
+<div class="schedule-section">
+
+    <div class="schedule-overlay"></div>
+
+    <div class="schedule-content">
+
+        <h2 class="schedule-title">JADWAL LATIHAN</h2>
+
+        <div class="schedule-info">
+
+            <div class="schedule-item">
+                <span class="schedule-icon">📅</span>
+                <p>Hari <strong>Jum’at</strong></p>
             </div>
 
-
-            <div class="info-item">
-                <img class="icon" src="img/clock.png" alt="clock">
-                <span>Waktu 15.30 - Selesai</span>
+            <div class="schedule-item">
+                <span class="schedule-icon">⏰</span>
+                <p>Waktu <strong>15.30 – Selesai</strong></p>
             </div>
 
-
-            <div class="info-item">
-                <img class="icon" src="loc  " alt="location">
-                <span>Tempat Lapang Voli Universitas Ma’soem</span>
+            <div class="schedule-item">
+                <span class="schedule-icon">📍</span>
+                <p>Lapangan Voli <strong>Universitas Ma’soem</strong></p>
             </div>
+
         </div>
 
+        <p class="schedule-desc">
+            Latihan rutin UKM Bola Voli Universitas Ma’soem dilaksanakan secara
+            konsisten untuk meningkatkan kemampuan teknik, fisik, dan kerja sama
+            tim. Kegiatan ini terbuka bagi seluruh anggota aktif dengan komitmen
+            terhadap sportivitas dan kedisiplinan.
+        </p>
 
-            <p style="font-size:14px; line-height:1.6; opacity:0.8;">
-            Lorem ipsum plagijist megack. Titreest plabjat. Dligi kompetensaviktjing, riktig lar. Ssådde per, någåkapet. Beset. Odade molnöde, att preheten.
-            Luvpung låsit ist digints. Teraren hypoopide preades. Vans nörhårt pålfjäter. Geaven pitep. Bakö tisre tresmetar. Rlydig liggial.
-            Platta till kurvan vyasket semit vuci. Krodfreträ relätig ololides demde. Aeyolasen sem sås lidederes temporåtisk. Djiv lnutment. Nluvare opsöpy. Anare grerar.
-            Euorakran joblibossorpatpulifide drutt innut ryvusk. Kors rapartser dol erliningare. Hölödes bjärrs viligtav vismod. Åsår nekotig städjogr. Gosuande begangn.
-            Ott resåde ovovakcept. Transporten leter gyldir. Beliga vylir, gir pretung. Plamett pseudorade tire omt. Öre telelivagr i erat såväl som donas. Ikylke sarer, vikbor, alpol.
-            </p>
-
-
-            <div class="logos">
-                <img src="logo1.png" alt="logo 1">
-                <img src="logo2.png" alt="logo 2">
-                <img src="logo3.png" alt="logo 3">
-            </div>
-        </div>
     </div>
+
+</div>
+
 
     <!-- FOOTER -->
     <footer>
