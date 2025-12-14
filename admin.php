@@ -36,20 +36,48 @@ if (isset($_GET['hapus'])) {
     <link rel="stylesheet" href="style.css">
 
     <style>
+
+        .content-admin {
+            margin: 0 135px;
+        }
         
         table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 25px;
-        }
-        th, td {
-            border: 1px solid #444;
-            padding: 10px;
-        }
-        img {
-            width: 60px;
-            border-radius: 6px;
-        }
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 20px;
+                background: white;
+                border-radius: 12px;
+                overflow: hidden;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            }
+
+            table th {
+                background: #003087;
+                color: white;
+                padding: 14px;
+                font-size: 15px;
+            }
+
+            table td {
+                padding: 14px;
+                border-bottom: 1px solid #eee;
+                font-size: 14px;
+            }
+
+            table tr:last-child td {
+                border-bottom: none;
+            }
+
+            table tr:hover {
+                background: #f5f8ff;
+            }
+
+            table th,
+            table td {
+                text-align: center;
+                vertical-align: middle;
+            }
+
         .btn-hapus {
             background: red;
             color: white;
@@ -67,30 +95,13 @@ if (isset($_GET['hapus'])) {
             
         }
         .action-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 10px; /* jarak antar tombol */
-    margin-top: 10px;
-}
-
-                table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 10px; /* jarak antar tombol */
+            margin-top: 10px;
         }
 
-        table th {
-            background: #003087;
-            color: white;
-            padding: 10px;
-        }
-
-        table td {
-            padding: 10px;
-            border-bottom: 1px solid #ddd;
-        }
-
-        img {
+        .img-admin-member {
             width: 90px;
             height: 130px;
             object-fit: cover;
@@ -98,7 +109,7 @@ if (isset($_GET['hapus'])) {
             border: 2px solid #ffc400;
         }
 
-        h2 { color: #003087; }
+        h1 { color: #003087; }
 
         table th, table td {
     text-align: center;
@@ -124,52 +135,55 @@ if (isset($_GET['hapus'])) {
     </div>
     <br>
     <br>
-<h2 style="text-align:center;">Data Member / Pendaftar UKM Voli</h2>
 
-<br>
-<br>
-<a href="logout.php" style="background:red;color:white;padding:8px;text-decoration:none;border-radius:4px;">
-    Logout
-</a>
-
-<table>
-    <tr>
-        <th>No</th>
-        <th>Foto</th>
-        <th>Nama</th>
-        <th>NIM</th>
-        <th>Prodi</th>
-        <th>Fakultas</th>
-        <th>Angkatan</th>
-        <th>No HP</th>
-        <th>Aksi</th>
-    </tr>
-
-    <?php
-    $no = 1;
-    $result = $koneksi->query("SELECT * FROM pendaftaran ORDER BY id DESC");
-
-    while ($row = $result->fetch_assoc()) {
-    ?>
-        <tr>
-            <td><?= $no++; ?></td>
-            <td><img src="uploads/<?= $row['foto']; ?>"></td>
-            <td><?= $row['nama']; ?></td>
-            <td><?= $row['nim']; ?></td>
-            <td><?= $row['prodi']; ?></td>
-            <td><?= $row['fakultas']; ?></td>
-            <td><?= $row['angkatan']; ?></td>
-            <td><?= $row['no_hp']; ?></td>
-            <td>
-<div class="action-buttons">
-    <a href="edit.php?id=<?= $row['id']; ?>" class="btn-edit">Edit</a>
-    <a href="admin.php?hapus=<?= $row['id']; ?>" onclick="return confirm('Yakin ingin menghapus?');" class="btn-hapus">Hapus</a>
-</div>
-
-            </td>
-        </tr>
-    <?php } ?>
-</table>
+    <div class="content-admin">
+        <h1 style="text-align:center;">Data Anggota / Pendaftar UKM Voli</h1>
+        
+        <br>
+        <br>
+        <a href="logout.php" style="background:red;color:white;padding:8px;text-decoration:none;border-radius:4px;">
+            Logout
+        </a>
+        
+        <table>
+            <tr>
+                <th>No</th>
+                <th>Foto</th>
+                <th>Nama</th>
+                <th>NIM</th>
+                <th>Prodi</th>
+                <th>Fakultas</th>
+                <th>Angkatan</th>
+                <th>No HP</th>
+                <th>Aksi</th>
+            </tr>
+        
+            <?php
+            $no = 1;
+            $result = $koneksi->query("SELECT * FROM pendaftaran ORDER BY id DESC");
+        
+            while ($row = $result->fetch_assoc()) {
+            ?>
+                <tr>
+                    <td><?= $no++; ?></td>
+                    <td><img src="uploads/<?= $row['foto']; ?>" class="img-admin-member"></td>
+                    <td><?= $row['nama']; ?></td>
+                    <td><?= $row['nim']; ?></td>
+                    <td><?= $row['prodi']; ?></td>
+                    <td><?= $row['fakultas']; ?></td>
+                    <td><?= $row['angkatan']; ?></td>
+                    <td><?= $row['no_hp']; ?></td>
+                    <td>
+        <div class="action-buttons">
+            <a href="edit.php?id=<?= $row['id']; ?>" class="btn-edit">Edit</a>
+            <a href="admin.php?hapus=<?= $row['id']; ?>" onclick="return confirm('Yakin ingin menghapus?');" class="btn-hapus">Hapus</a>
+        </div>
+        
+                    </td>
+                </tr>
+            <?php } ?>
+        </table>
+    </div>
 
 </body>
 </html>
