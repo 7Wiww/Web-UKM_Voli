@@ -33,6 +33,8 @@ body {
     width: 100%; 
     height: 100%;
     object-fit: cover;
+    object-position: center;
+    display: block;
 }
 
 .nav-right {
@@ -403,316 +405,363 @@ input {
     }
 }
 
-/* =============== KEPENGURUSAN =============== */
-
+/* ================= KEPENGURUSAN ================= */
 .kepengurusan {
     padding: 80px 5%;
-    background: linear-gradient(to bottom, #f7f7f7, #4b4a4a);
+    background: linear-gradient(
+    180deg,
+    #edf0f4 0%,
+    #e2e7ed 50%,
+    #d6dde6 100%
+);
 }
 
 .judul-section {
     text-align: center;
     font-size: 32px;
     font-weight: 800;
-    margin-bottom: 50px;
+    margin-bottom: 60px;
 }
 
-/* FOTO BAGIAN ATAS: Flex bukan grid → biar bisa dibentuk tangga */
+/* ================= FOTO ATAS ================= */
 .foto-atas {
     display: flex;
     justify-content: center;
-    gap: 40px;
-    margin-bottom: 80px;
+    gap: 30px;
+    align-items: flex-end;
 }
 
+/* ukuran bertingkat (anak tangga) */
+.card-k1 { width: 340px; height: 480px; }
+.card-k2 { width: 300px; height: 430px; }
+.card-k3 { width: 270px; height: 390px; }
+.card-k4 { width: 250px; height: 350px; }
 
-.card:hover img {
-    transform: scale(1.07);
+/* ================= FOTO BAWAH ================= */
+.foto-bawah {
+    margin-top: 90px;
+    display: flex;
+    justify-content: center;
+    gap: 60px;
 }
-/* Penyesuaian ukuran sesuai gambar Figma */
-.card-k1 { width: 350px; height: 500px; margin-top: 0; }
-.card-k2 { width: 300px; height: 450px; margin-top: 50px; }
-.card-k3 { width: 270px; height: 400px; margin-top: 100px; }
-.card-k4 { width: 250px; height: 350px; margin-top: 150px; }
 
-/* Semua kartu atas style sama */
-.card-k1, .card-k2, .card-k3, .card-k4 {
-    border-radius: 15px;
-    overflow: hidden;
+.card-b {
+    width: 300px;
+    height: 420px;
+}
+
+/* ================= KARTU UMUM ================= */
+.card-k1,
+.card-k2,
+.card-k3,
+.card-k4,
+.card-b {
     position: relative;
+    overflow: hidden;
+    border-radius: 22px;
     cursor: pointer;
-    transition: transform 0.35s ease;
+    background: #fff;
+    box-shadow:
+        0 15px 30px rgba(0,0,0,0.12);
+    transition: 
+        transform 0.45s ease,
+        box-shadow 0.45s ease;
 }
 
+
+/* ================= GAMBAR ================= */
 .card-k1 img,
 .card-k2 img,
 .card-k3 img,
-.card-k4 img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s ease;
-    
-}
-
-/* JUDUL JABATAN – lebih besar & tebal seperti Man City */
-.text-k h3 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 42px;              /* DIBESARKAN dari 32px → 42px */
-    letter-spacing: 1px;
-    font-weight: 400;
-    color: white;
-    transition: color 0.3s ease;
-}
-
-/* NAMA + PRODI – diperbesar */
-.text-k p {
-    font-family: 'Inter', sans-serif;
-    font-size: 58px;              /* dari 14px → 18px */
-    font-weight: 400;
-    margin-top: 5px;
-    color: white;
-    line-height: 1.4;
-    transition: color 0.3s ease;
-}
-
-/* Hover biru ala Manchester City */
-.card-k1:hover .text-k h3,
-.card-k1:hover .text-k p,
-.card-k2:hover .text-k h3,
-.card-k2:hover .text-k p,
-.card-k3:hover .text-k h3,
-.card-k3:hover .text-k p,
-.card-k4:hover .text-k h3,
-.card-k4:hover .text-k p 
-.card:hover img{
-    color: #6CABDD;
- 
-    transform: scale(1.07);
-
-
-}
-
-
-/* FOTO BAGIAN BAWAH — 3 kolom dan rata tengah */
-.foto-bawah {
-    display: flex;
-    justify-content: center;
-    gap: 90px;
-    margin-top: 80px;
-}
-
-/* Semua card bawah */
-.card-b {
-    width: 320px;
-    height: 500px;
-    border-radius: 15px;
-    overflow: hidden;
-    position: relative;
-    cursor: pointer;
-    transition: transform 0.35s ease, box-shadow 0.35s ease;
-}
-
+.card-k4 img,
 .card-b img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.4s ease;
+    transition: transform 0.5s ease;
 }
 
-
-
-/* Image Zoom */
-.card-b:hover img {
-    transform: scale(1.07);
-}
-
-
-
-.card-b:hover::after {
-    background: rgba(0, 180, 255, 0.15);
-}
-
-/* TEXT BAGIAN BAWAH */
-.text-b {
-    position: absolute;
-    bottom: 15px;
-    left: 15px;
-    z-index: 3;
-}
-
-/* Judul besar ala MCFC */
-.text-b h3 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 42px;
-    letter-spacing: 1px;
-    font-weight: 400;
-    color: white;
-    transition: color 0.3s ease;
-}
-
-/* Nama + prodi */
-.text-b p {
-    font-family: 'Inter', sans-serif;
-    font-size: 18px;
-    font-weight: 400;
-    color: white;
-    line-height: 1.3;
-    transition: color 0.3s ease;
-}
-
-/* Hover → teks biru */
-.card-b:hover .text-b h3,
-.card-b:hover .text-b p {
-    color: #6CABDD; /* Sky Blue Manchester City */
-}
-
-/* Text overlay */
-.text-k {
-    position: absolute;
-    bottom: 15px;
-    left: 15px;
-    color: white;
-    font-weight: 700;
-    text-shadow: 1px 1px 4px black;
-}
-
-.text-k h3 {
-    font-size: 17px;
-    margin: 0;
-}
-
-.text-k p {
-    margin: 0;
-    font-size: 14px;
-}
-
-.hero-home {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    background: url('img/bghome.jpg') center/cover no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.overlay {
+/* ================= OVERLAY ================= */
+.card-k1::before,
+.card-k2::before,
+.card-k3::before,
+.card-k4::before,
+.card-b::before {
+    content: "";
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.55);
-}
-.content {
-    position: relative;
-    max-width: 900px;
-    text-align: left;
-    padding: 20px;
-}
-
-.content h1 {
-    color: #f5f5f5;
+    background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.75),
+        rgba(0,0,0,0.2),
+        rgba(0,0,0,0)
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 1;
 }
 
-.title {
-    font-size: 36px;
-    font-weight: 700;
+/* ================= TEXT ================= */
+.text-k,
+.text-b {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%) translateY(15px);
+    color: white;
+    z-index: 2;
+    opacity: 0;
     text-align: center;
-    margin-bottom: 40px;
-}
-.info-block {
-    margin-bottom: 25px;
+    transition: all 0.4s ease;
+    width: 100%;
+    padding: 0 20px;
+  }
+
+.text-k h3,
+.text-b h3 {
     font-size: 18px;
-    line-height: 1.7;
+    font-weight: 800;
+    letter-spacing: 1px;
 }
 
-.info-item {
+.text-k p,
+.text-b p {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+
+/* ================= HOVER EFFECT ================= */
+.card-k1:hover img,
+.card-k2:hover img,
+.card-k3:hover img,
+.card-k4:hover img,
+.card-b:hover img {
+    transform: scale(1.05);
+}
+
+.card-k1:hover,
+.card-k2:hover,
+.card-k3:hover,
+.card-k4:hover,
+.card-b:hover {
+    transform: translateY(-12px);
+    box-shadow:
+        0 30px 60px rgba(0,0,0,0.18);
+}
+
+.card-k1::before,
+.card-k2::before,
+.card-k3::before,
+.card-k4::before,
+.card-b::before {
+    background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.85),
+        rgba(0,0,0,0.35),
+        rgba(0,0,0,0)
+    );
+}
+
+.card-k1:hover::after,
+.card-k2:hover::after,
+.card-k3:hover::after,
+.card-k4:hover::after,
+.card-b:hover::after {
+    opacity: 1;
+}
+/* ================= BACKGROUND GRADIENT TEKS ================= */
+.card-k1::after,
+.card-k2::after,
+.card-k3::after,
+.card-k4::after,
+.card-b::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.85) 0%,
+        rgba(0,0,0,0.55) 25%,
+        rgba(0,0,0,0.25) 50%,
+        rgba(0,0,0,0) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.45s ease;
+    z-index: 1;
+}
+
+.card-k1:hover .text-k,
+.card-k2:hover .text-k,
+.card-k3:hover .text-k,
+.card-k4:hover .text-k,
+.card-b:hover .text-b {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* ================= SCROLL REPEAT ANIMATION ================= */
+.reveal-section {
+    opacity: 0;
+    transform: translateY(70px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal-section.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Card */
+.reveal-card {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+}
+
+.reveal-card.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 992px) {
+    .foto-atas {
+        flex-wrap: wrap;
+        gap: 25px;
+    }
+
+    .foto-bawah {
+        flex-wrap: wrap;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 576px) {
+    .card-k1,
+    .card-k2,
+    .card-k3,
+    .card-k4,
+    .card-b {
+        width: 90%;
+        height: 380px;
+    }
+
+    .text-k h3,
+    .text-b h3 {
+        font-size: 16px;
+    }
+
+    .text-k p,
+    .text-b p {
+        font-size: 13px;
+    }
+}
+
+/* =============== JADWAL LATIHAN =============== */
+
+.schedule-section {
+    position: relative;
+    width: 100%;
+    min-height: 670px;
+    background: url("img/bg-latihan.jpg") center/cover no-repeat;
+    background-position: center;
+    background-size: cover;
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
-    color: #f5f5f5;
-}
-    .info-item img.icon {
-    width: 22px;
+    padding: 80px 8%;
+    color: #fff;
 }
 
+/* Overlay gelap */
+.schedule-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+    to right,
+    rgba(0, 70, 160, 0.6),
+    rgba(0, 0, 0, 0.5)
+);
+    z-index: 1;
+}
 
-/* Logo sponsors */
-.logos {
+/* Konten */
+.schedule-content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+}
+
+.schedule-title {
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+/* Info list */
+.schedule-info {
     display: flex;
-    justify-content: center;
-    gap: 40px;
-    margin-top: 40px;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 25px;
 }
-.logos img {
-    height: 60px;
-    opacity: 0.8;
+
+.schedule-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 18px;
 }
+
+.schedule-icon {
+    font-size: 22px;
+}
+
+/* Deskripsi */
+.schedule-desc {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #eaeaea;
+    max-width: 600px;
+}
+
+/* =============== RESPONSIVE =============== */
+
+@media (max-width: 768px) {
+    .schedule-section {
+        padding: 60px 6%;
+        min-height: auto;
+    }
+
+    .schedule-title {
+        font-size: 28px;
+    }
+
+    .schedule-item {
+        font-size: 16px;
+    }
+
+    .schedule-desc {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .schedule-title {
+        font-size: 24px;
+    }
+
+    .schedule-icon {
+        font-size: 20px;
+    }
+}
+
 /* =============== HOME SECTION END =============== */
 
 /* ============= ABOUT =========== */
-/* ===== HEADER ===== */
-.header {
-  background-color: #fff;
-  border-bottom: 4px solid #1e5a96;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.header-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 1rem 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.logo {
-  width: 60px;
-  height: 60px;
-  flex-shrink: 0;
-}
-
-.logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 2px solid #ffc107;
-}
-
-.navbar {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-}
-
-.nav-link {
-  font-weight: bold;
-  font-size: 1.1rem;
-  transition: color 0.3s ease;
-}
-
-.nav-link:hover {
-  color: #1e5a96;
-}
-
-.nav-button {
-  padding: 0.75rem 1.5rem;
-  border: 2px solid #000;
-  border-radius: 25px;
-  font-weight: bold;
-  font-size: 1rem;
-  background: transparent;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.nav-button:hover {
-  background-color: #f0f0f0;
-}
 
 /* ===== HISTORY SECTION ===== */
 .history-section {
@@ -1425,3 +1474,136 @@ img {
     font-size: 15px;
 }
 
+/* ================= CONTACT SECTION ================= */
+.contact-section {
+    padding: 100px 8%;
+    background: linear-gradient(
+        180deg,
+        #edf0f4 0%,
+        #e2e7ed 50%,
+        #d6dde6 100%
+    );
+}
+
+/* ================= TITLE ================= */
+.contact-title {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+.contact-desc {
+    text-align: center;
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 70px;
+}
+
+/* ================= CONTAINER ================= */
+.contact-container {
+    display: flex;
+    gap: 60px;
+    justify-content: center;
+    align-items: stretch;
+}
+
+/* ================= INFO ================= */
+.contact-info {
+    width: 380px;
+    padding: 40px;
+    border-radius: 22px;
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+}
+
+.contact-info h3 {
+    font-size: 22px;
+    margin-bottom: 25px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 18px;
+}
+
+.info-item span {
+    font-size: 20px;
+}
+
+.info-item p {
+    font-size: 15px;
+    color: #333;
+}
+
+/* ================= FORM ================= */
+.contact-form {
+    width: 420px;
+    padding: 40px;
+    border-radius: 22px;
+    background: #fff;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+}
+
+.contact-form h3 {
+    font-size: 22px;
+    margin-bottom: 25px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 14px 16px;
+    margin-bottom: 18px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    outline: none;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #7b8dbd;
+    box-shadow: 0 0 0 3px rgba(123,141,189,0.2);
+}
+
+/* ================= BUTTON ================= */
+.contact-form button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 14px;
+    background: linear-gradient(
+        135deg,
+        #5c6bc0,
+        #3949ab
+    );
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(57,73,171,0.35);
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 992px) {
+    .contact-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-info,
+    .contact-form {
+        width: 100%;
+        max-width: 500px;
+    }
+}
